@@ -1,0 +1,31 @@
+<% content_for :stylesheets do %>
+<%= stylesheet_link_tag "navbar", media: "all" %>
+<% end %>
+
+
+<h1 class="navbar-title">
+    <%= link_to "SZBlog", root_path %>
+</h1>
+<% if usuario_logado? %>
+    <nav class="navbar">
+        <div class="menu">
+            <p> <%= link_to "Usuários", usuarios_path %>
+            </p>
+            <p> <%= link_to "Comentários", comentarios_path %>
+            </p>
+            <p> <%= link_to "Posts", posts_path %>
+            </p>
+        </div>
+
+        <div class="session">
+            <p> <%= button_to "Sair", logout_path, method: :delete %> </p>
+        </div>
+    </nav>
+    <% else %>
+    <nav class="navbar">
+        <div class="session">
+            <p> <%= link_to "Criar conta", new_usuario_path %> </p>
+            <p> <%= link_to "Login", sessions_new_path %> </p>
+        </div>
+    </nav>
+<% end %>

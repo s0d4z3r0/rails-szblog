@@ -1,0 +1,24 @@
+<div id="<%= dom_id post %>">
+    <p>
+        <strong>Titulo:</strong>
+        <%= post.titulo %>
+    </p>
+
+    <p>
+        <strong>Texto:</strong>
+        <%= post.texto %>
+    </p>
+
+    <p>
+        <strong>Usuario:</strong>
+        <%= post.usuario.nome %>
+    </p>
+
+    <%if @post.usuario == current_usuario%>
+      <%= button_to "Editar Post", edit_post_path, method: :get %>
+      <%= button_to "Apagar Post", posts_path, method: :delete %>
+    <%end%>
+
+    <hr>
+
+</div>

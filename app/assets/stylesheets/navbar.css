@@ -1,0 +1,40 @@
+h1.navbar-title{
+    text-align: center;
+}
+.navbar-title a{
+    color: #000;
+    text-decoration: none;
+}
+
+nav.navbar{
+    display: flex; 
+    justify-content: space-around; 
+    box-shadow: -5px 5px 8px rgb(39, 136, 44); 
+    border-radius: 2rem;
+    margin: 0 2rem;
+}
+
+nav.navbar .menu{
+    border-right: 8px dotted rgb(21, 156, 9);
+    display: flex; 
+    justify-content: space-evenly; 
+    width: 70%
+}
+nav.navbar .menu p a, nav.navbar .session p a{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(32, 155, 32);
+    text-decoration: none;
+    transition: .2s ease-in-out;
+}
+nav.navbar .menu p a:hover, nav.navbar .session p a:hover{
+    color: rgb(7, 37, 7);
+    transition: .2s ease-in-out;
+}
+
+nav.navbar .session{
+    display: flex; 
+    justify-content: space-around; 
+    width: 30%
+}

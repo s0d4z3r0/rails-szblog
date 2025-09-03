@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @usuario %>
+
+<div>
+    <% if current_usuario == @usuario%>
+      <%= link_to "Editar", edit_usuario_path(@usuario) %> |
+      <%= link_to "Voltar para Usuários", usuarios_path %>
+
+      <%= button_to "Apagar conta", @usuario, method: :delete %>
+    <%elsif%>
+      <%= link_to "Voltar para Usuários", usuarios_path %>
+    <% end %>
+</div>

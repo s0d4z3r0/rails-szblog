@@ -1,0 +1,19 @@
+<% content_for :navbar do %>
+    <%= render "shared/navbar" %>
+<% end %>
+
+<p><%= notice %></p>
+
+<% content_for :title, "Usuarios" %>
+
+<h1>Usuarios</h1>
+
+<div id="usuarios">
+  <% @usuarios.each do |usuario| %>
+    <%= render usuario %>
+    <p>
+      <%= link_to "Mostrar usuário", usuario %>
+    </p>
+  <% end %>
+</div>
+

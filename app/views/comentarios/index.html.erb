@@ -1,0 +1,28 @@
+<% content_for :navbar do %>
+<%= render "shared/navbar" %>
+<% end %>
+
+<br>
+<div>
+    <%= link_to "Voltar para Welcome", root_path %>
+</div>
+
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Comentarios" %>
+
+<h1>Comentarios</h1>
+
+<div id="comentarios">
+    <% @comentarios.each do |comentario| %>
+    <p>
+        <strong>Comentário:</strong>
+        <%= comentario.comentario %>
+    </p>
+    <p>
+        <%= link_to "Show this comentario", comentario %>
+    </p>
+    <% end %>
+</div>
+
+<%= button_to "New comentario", new_comentario_path, method: :get %>

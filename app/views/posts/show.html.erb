@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @post %>
+
+
+
+<h3>Comentários:</h3>
+
+<% if @post.comentarios.any? %>
+  <% @post.comentarios.each do |comentario| %>
+    <div class="comentario_card">
+        <p><strong><%= comentario.usuario.nome %></strong> comentou:</p>
+        <p><%= comentario.comentario %></p>
+          <% if comentario.usuario == current_usuario %>
+            <div>
+                <%= button_to "Editar comentário", edit_comentario_path(comentario), method: :get %>
+                <%= button_to "Apagar comentário", comentario_path(comentario), method: :delete, data: { confirm: "Tem certeza que deseja excluir este comentário?"} %>
+            </div>
+        <%end%>
+        <hr>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @post.comentarios.length == 0 %>
+  <div>
+      <p>Este Post ainda não recebeu comentário. Seja o primeiro!</p>
+  </div>
+<% end %>
+
+<%= link_to "Novo comentário", new_comentario_path(post_id: @post.id) %>
+<%= link_to "Voltar", posts_path %>

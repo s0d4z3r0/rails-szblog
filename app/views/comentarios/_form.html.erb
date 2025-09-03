@@ -1,0 +1,42 @@
+<%= form_with(model: comentario) do |form| %>
+  <% if comentario.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(comentario.errors.count, "error") %> prohibited this comentario from being saved:</h2>
+
+      <ul>
+        <% comentario.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome, value: current_usuario.nome, disabled: true %>
+  </div>
+
+  <div>
+    <%= form.label :comentario, style: "display: block" %>
+    <%= form.textarea :comentario %>
+  </div>
+
+  <% if @comentario.post_id? %>
+    <div>
+      <%= form.label :post_id, "Post", style: "display: block" %>
+      <%= form.select :post_id, grouped_options_for_select(@posts_grouped, @comentario.post_id), {}, disabled: true %>
+      <%= form.hidden_field :post_id%>
+    </div>
+    <% elsif %>
+      <div>
+        <%= form.label :post_id, "Selecione o Post", style: "display: block" %>
+        <%= form.select :post_id, grouped_options_for_select(@posts_grouped, @comentario.post_id), prompt: "Escolha um Post" %>
+      </div>
+  <% end %>
+  
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

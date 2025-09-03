@@ -1,0 +1,17 @@
+<% content_for :navbar do %>
+    <%= render "shared/navbar" %>
+<% end %>
+
+<br>
+<div>
+  <%= link_to "Voltar para Welcome", root_path %>
+</div>
+
+<% content_for :title, "New usuario" %>
+
+<h1>New usuario</h1>
+
+<%= render "form", usuario: @usuario %>
+
+<br>
+

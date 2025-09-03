@@ -1,0 +1,27 @@
+<% content_for :navbar do %>
+<%= render "shared/navbar" %>
+<% end %>
+
+<br>
+<div>
+    <%= link_to "Voltar para Welcome", root_path %>
+</div>
+
+<p style="color: green"><%= notice %></p>
+<% content_for :title, "Posts" %>
+
+<h1>Posts</h1>
+
+<div id="posts">
+    <% @posts.each do |post| %>
+    <h4 style="display: inline;">Título: </h4>
+    <p style="display: inline;">
+        <%= post.titulo %>
+    </p>
+    <p>
+        <%= link_to "Mostrar", post %>
+    </p>
+    <% end %>
+</div>
+
+<%= button_to "Novo Post", new_post_path, method: :get %>
